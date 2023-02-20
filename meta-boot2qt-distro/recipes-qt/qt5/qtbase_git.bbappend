@@ -45,9 +45,9 @@ PACKAGECONFIG += " \
     xkbcommon \
     "
 
-PACKAGECONFIG_remove = "tests examples"
+PACKAGECONFIG:remove = "tests examples"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
     file://0001-Add-win32-g-oe-mkspec-that-uses-the-OE_-environment.patch \
@@ -57,7 +57,7 @@ SRC_URI += " \
 QT_QPA_DEFAULT_PLATFORM ??= "eglfs"
 QT_QPA_EGLFS_INTEGRATION ??= ""
 
-do_configure_prepend() {
+do_configure:prepend() {
     echo "QMAKE_PLATFORM          += boot2qt" >> ${S}/mkspecs/oe-device-extra.pri
     echo "QT_QPA_DEFAULT_PLATFORM  = ${QT_QPA_DEFAULT_PLATFORM}" >> ${S}/mkspecs/oe-device-extra.pri
     if [ -n "${QT_QPA_EGLFS_INTEGRATION}" ]; then

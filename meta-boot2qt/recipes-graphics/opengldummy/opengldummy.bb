@@ -41,7 +41,7 @@ do_compile() {
     ${CC} ${LDFLAGS} -DQGS_BUILD_CLIENT_DLL -fPIC -shared -Wl,-soname,libGLESv2.so.2 -I${WORKDIR}/headers -o libGLESv2.so.2 ${WORKDIR}/gles2.cpp
 }
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}${libdir}
     install -m 0755 ${S}/libEGL.so.1 ${D}${libdir}
     ln -s libEGL.so.1 ${D}${libdir}/libEGL.so

@@ -35,7 +35,7 @@ SDK_MKSPEC = "devices/linux-oe-generic-g++"
 SDK_DEVICE_PRI = "${SDK_MKSPEC_DIR}/qdevice.pri"
 MACHINE_CMAKE = "${SDK_OUTPUT}${SDKPATHNATIVE}${datadir}/cmake/OEToolchainConfig.cmake.d/${MACHINE}.cmake"
 
-create_sdk_files_append () {
+create_sdk_files:append () {
     # Create the toolchain user's generic device mkspec
     install -d ${SDK_MKSPEC_DIR}/${SDK_MKSPEC}
     cat > ${SDK_MKSPEC_DIR}/${SDK_MKSPEC}/qmake.conf <<EOF
@@ -95,7 +95,7 @@ EOF
     echo "set(CMAKE_INSTALL_PREFIX \"${prefix}\" CACHE PATH \"Install path prefix\")"  >> ${MACHINE_CMAKE}
 }
 
-create_sdk_files_append_sdkmingw32 () {
+create_sdk_files:append:sdkmingw32 () {
     echo "set(OE_QMAKE_BIN_SUFFIX .exe)" >> ${MACHINE_CMAKE}
 }
 

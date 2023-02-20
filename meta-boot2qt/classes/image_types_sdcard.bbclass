@@ -29,13 +29,13 @@
 
 IMAGE_ROOTFS_EXTRA_SPACE = "100000"
 
-IMAGE_CMD_wic_append() {
+IMAGE_CMD_wic:append() {
     rm -f ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.img
     ln -s ${IMAGE_NAME}.rootfs.wic ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.img
 }
 
 do_image_tegraflash[depends] += "parted-native:do_populate_sysroot"
-create_tegraflash_pkg_prepend() {
+create_tegraflash_pkg:prepend() {
     # Create partition table
     SDCARD=${IMGDEPLOYDIR}/${IMAGE_NAME}.img
     SDCARD_ROOTFS=${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.${IMAGE_TEGRAFLASH_FS_TYPE}
@@ -54,7 +54,7 @@ create_tegraflash_pkg_prepend() {
 }
 
 # create flash package that utilizes the SD card image
-create_tegraflash_pkg_append() {
+create_tegraflash_pkg:append() {
     cd ${WORKDIR}/tegraflash
     cat > prepare-image.sh <<END
 #!/bin/sh -e
@@ -75,7 +75,7 @@ END
 }
 
 do_image[depends] += "qtbase-native:do_populate_sysroot"
-IMAGE_CMD_teziimg_append() {
+IMAGE_CMD_teziimg:append() {
     ${IMAGE_CMD_TAR} --transform 's,^,${IMAGE_NAME}-Tezi_${TEZI_VERSION}/,' -rhf ${IMGDEPLOYDIR}/${IMAGE_NAME}-Tezi_${TEZI_VERSION}.tar TEZI_B2QT_EULA.TXT Built_with_Qt.png
     ln -fs ${TEZI_IMAGE_NAME}-Tezi_${TEZI_VERSION}.tar ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.tezi.tar
 }
@@ -131,7 +131,7 @@ def rootfs_tezi_json_b2qt(d, flash_type, flash_data, json_file, uenv_file):
         json.dump(data, outfile, indent=4)
     bb.note("Toradex Easy Installer metadata file {0} written.".format(json_file))
 
-python rootfs_tezi_run_json_append() {
+python rootfs_tezi_run_json:append() {
     # rewrite image.json with our data
     rootfs_tezi_json_b2qt(d, flash_type, flash_data, "image-%s.json" % d.getVar('IMAGE_BASENAME'), uenv_file)
 }

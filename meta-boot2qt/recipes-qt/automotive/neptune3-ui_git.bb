@@ -50,8 +50,8 @@ SRC_URI += " \
     file://kms-qsr.conf \
     file://neptune-qsr \
     "
-SRC_URI_append_mx6 = " file://0001_hardware_variant_low.patch"
-SRC_URI_append_rpi = " file://0001_hardware_variant_low.patch"
+SRC_URI:append:mx6 = " file://0001_hardware_variant_low.patch"
+SRC_URI:append:rpi = " file://0001_hardware_variant_low.patch"
 
 SRCREV = "e17a5b6f144492e3447afb4869115f0a85fa076a"
 
@@ -66,7 +66,7 @@ DEPENDS = "\
     qtivi qtivi-native \
     qtremoteobjects qtremoteobjects-native \
     "
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     dbus dbus-session \
     default-qt-envs \
     otf-noto otf-noto-arabic ttf-opensans \
@@ -84,7 +84,7 @@ PACKAGECONFIG[ogl-runtime] = ",,ogl-runtime,ogl-runtime"
 
 EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/neptune.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/drivedata-simulation-server.service ${D}${systemd_unitdir}/system/

@@ -36,7 +36,7 @@ QT_GIT_PROJECT = "qt-apps"
 QT_MODULE = "boot2qt-demos"
 QT_MODULE_BRANCH = "5.15"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/boot2qt-demos:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/boot2qt-demos:"
 
 BRANCH = "5.15"
 

@@ -26,4 +26,4 @@
 ## $QT_END_LICENSE$
 ##
 ############################################################################
-PACKAGECONFIG_append_use-mainline-bsp = " qt5"
+PACKAGECONFIG:append:use-mainline-bsp = " qt5"

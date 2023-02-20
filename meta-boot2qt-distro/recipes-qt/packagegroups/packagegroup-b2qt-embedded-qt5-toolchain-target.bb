@@ -43,7 +43,7 @@ GCC-SANITIZERS ?= "gcc-sanitizers"
 GCC-SANITIZERS_mipsarch = ""
 GCC-SANITIZERS_libc-musl = ""
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${MACHINE_EXTRA_INSTALL_SDK} \
     packagegroup-core-standalone-sdk-target \
     ${GCC-SANITIZERS} \

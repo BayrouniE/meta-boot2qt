@@ -37,7 +37,7 @@ PACKAGEGROUP_DISABLE_COMPLEMENTARY = "1"
 OGL_RUNTIME ?= "ogl-runtime ogl-runtime-tools"
 OGL_RUNTIME_mipsarch ?= ""
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${OGL_RUNTIME} \
     qt3d \
     qtbase \

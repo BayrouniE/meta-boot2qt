@@ -36,4 +36,4 @@ require boot2qt-demo.inc
 S = "${WORKDIR}/git/basicsuite/ebike-ui"
 
 DEPENDS += "qtbase qtdeclarative qtquickcontrols2 qtlocation qtcharts"
-RDEPENDS_${PN} = "boot2qt-demo-ebike-datacollector"
+RDEPENDS:${PN} = "boot2qt-demo-ebike-datacollector"

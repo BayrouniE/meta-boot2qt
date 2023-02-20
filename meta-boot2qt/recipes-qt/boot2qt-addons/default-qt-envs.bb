@@ -41,7 +41,7 @@ do_configure() {
     fi
 }
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}${sysconfdir}/default
     install -m 0755 ${WORKDIR}/defaults ${D}${sysconfdir}/default/qt
 

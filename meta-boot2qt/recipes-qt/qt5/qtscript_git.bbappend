@@ -1,1 +1,1 @@
-EXTRA_QMAKEVARS_PRE_append_arm = " CONFIG-=ltcg"
+EXTRA_QMAKEVARS_PRE:append_arm = " CONFIG-=ltcg"

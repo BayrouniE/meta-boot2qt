@@ -27,7 +27,7 @@
 ##
 ############################################################################
 
-PACKAGECONFIG_append_mx8 = " gbm kms"
+PACKAGECONFIG:append:mx8 = " gbm kms"
 
 QT_QPA_DEFAULT_PLATFORM ?= "eglfs"
 QT_QPA_DEFAULT_PLATFORM_mx6ull ?= "linuxfb"

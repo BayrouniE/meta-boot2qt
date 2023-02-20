@@ -34,7 +34,7 @@ inherit packagegroup
 
 PACKAGEGROUP_DISABLE_COMPLEMENTARY = "1"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     boot2qt-appcontroller \
     qtivi \
     neptune3-ui \
@@ -46,4 +46,4 @@ RDEPENDS_${PN} += " \
     avs-device-sdk \
     "
 
-RDEPENDS_${PN} += "${@bb.utils.filter('DISTRO_FEATURES', 'qtsaferenderer', d)}"
+RDEPENDS:${PN} += "${@bb.utils.filter('DISTRO_FEATURES', 'qtsaferenderer', d)}"

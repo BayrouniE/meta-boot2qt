@@ -33,16 +33,16 @@
 
 INCOMPATIBLE_LICENSE += "*GPLv3"
 
-IMAGE_FEATURES_remove_pn-b2qt-embedded-qt5-image = "tools-debug debug-tweaks"
-IMAGE_FEATURES_remove_pn-b2qt-automotive-qt5-image = "tools-debug debug-tweaks"
+IMAGE_FEATURES:remove_pn-b2qt-embedded-qt5-image = "tools-debug debug-tweaks"
+IMAGE_FEATURES:remove_pn-b2qt-automotive-qt5-image = "tools-debug debug-tweaks"
 
-RDEPENDS_packagegroup-b2qt-embedded-tools_remove_pn-packagegroup-b2qt-embedded-tools = "binutils binutils-symlinks perf"
-RDEPENDS_packagegroup-b2qt-embedded-base_remove_pn-packagegroup-b2qt-embedded-base = "ttf-freefont-mono"
+RDEPENDS:packagegroup-b2qt-embedded-tools:remove_pn-packagegroup-b2qt-embedded-tools = "binutils binutils-symlinks perf"
+RDEPENDS:packagegroup-b2qt-embedded-base:remove_pn-packagegroup-b2qt-embedded-base = "ttf-freefont-mono"
 
-PACKAGECONFIG_remove_pn-qtvirtualkeyboard = "hunspell"
-PACKAGECONFIG_remove_pn-python3-pygobject = "cairo"
+PACKAGECONFIG:remove_pn-qtvirtualkeyboard = "hunspell"
+PACKAGECONFIG:remove_pn-python3-pygobject = "cairo"
 
 # intel nuc specific changes
 IMAGE_FSTYPES_intel-corei7-64 = "tar.gz"
-MACHINE_EXTRA_INSTALL_remove_intel-corei7-64 = "grub-efi-config"
+MACHINE_EXTRA_INSTALL:remove_intel-corei7-64 = "grub-efi-config"
 QBSP_IMAGE_CONTENT_intel-corei7-64 = ""

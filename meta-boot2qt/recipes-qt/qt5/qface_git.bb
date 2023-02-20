@@ -41,7 +41,7 @@ DEPS += " python3-jinja2 \
           python3-setuptools \
         "
 DEPENDS += "${DEPS}"
-RDEPENDS_${PN} += "${DEPS}"
+RDEPENDS:${PN} += "${DEPS}"
 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=eee61e10a40b0e3045ee5965bcd9a8b5"

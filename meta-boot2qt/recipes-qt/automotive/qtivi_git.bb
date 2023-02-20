@@ -37,10 +37,10 @@ LIC_FILES_CHKSUM = "file://LICENSE.FDL;md5=6d9f2a9af4c8b8c3c769f6cc1b6aaf7e \
                     file://LICENSE.LGPL3;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 DEPENDS = "qtbase qtdeclarative qtmultimedia qtivi-native qtquickcontrols2"
-DEPENDS_class-native = "qtbase"
-DEPENDS_class-nativesdk = "qtbase qtivi-native"
-RDEPENDS_${PN}-tools += " ${@bb.utils.contains('PACKAGECONFIG','ivigenerator-native','qface','', d)}"
-RDEPENDS_${PN}-dev += " ${PN}-staticdev"
+DEPENDS:class-native = "qtbase"
+DEPENDS:class-nativesdk = "qtbase qtivi-native"
+RDEPENDS:${PN}-tools += " ${@bb.utils.contains('PACKAGECONFIG','ivigenerator-native','qface','', d)}"
+RDEPENDS:${PN}-dev += " ${PN}-staticdev"
 
 inherit qt5-module
 inherit python3native
@@ -67,14 +67,14 @@ PACKAGECONFIG[host-tools-only] = "QMAKE_EXTRA_ARGS+=-host-tools-only"
 PACKAGECONFIG[remoteobjects] = "QMAKE_EXTRA_ARGS+=-feature-remoteobjects,,qtremoteobjects qtremoteobjects-native"
 PACKAGECONFIG[remoteobjects-native] = "QMAKE_EXTRA_ARGS+=-feature-remoteobjects QMAKE_EXTRA_ARGS+=--force-ivigenerator-qtremoteobjects"
 
-PACKAGECONFIG_class-native ??= "host-tools-only ivigenerator-native remoteobjects-native"
-PACKAGECONFIG_class-nativesdk ??= "${PACKAGECONFIG_class-native}"
+PACKAGECONFIG:class-native ??= "host-tools-only ivigenerator-native remoteobjects-native"
+PACKAGECONFIG:class-nativesdk ??= "${PACKAGECONFIG_class-native}"
 
 ALLOW_EMPTY_${PN}-tools = "1"
 
 EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS} ${@bb.utils.contains_any('PACKAGECONFIG', 'ivigenerator ivigenerator-native', '', 'QMAKE_EXTRA_ARGS+=-no-ivigenerator', d)}"
 
-do_install_append_class-target() {
+do_install:append:class-target() {
     install -m 0755 -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/ivimedia-simulation-server.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/ivivehiclefunctions-simulation-server.service ${D}${systemd_unitdir}/system/

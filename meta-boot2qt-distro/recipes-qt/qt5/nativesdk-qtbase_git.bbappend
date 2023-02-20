@@ -27,18 +27,18 @@
 ##
 ############################################################################
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/qtbase:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/qtbase:"
 
 SRC_URI += "\
     file://0001-Add-win32-g-oe-mkspec-that-uses-the-OE_-environment.patch \
     "
 
 PACKAGECONFIG += "openssl gui imageformats"
-PACKAGECONFIG_remove_mingw32 += "openssl"
+PACKAGECONFIG:remove:mingw32 = "openssl"
 
-fakeroot do_generate_qt_environment_file_mingw32() {
+fakeroot do_generate_qt_environment_file:mingw32() {
     :
 }
 
 # qdatetime.cpp: error: 'localtime_r' was not declared in this scope
-QT_CONFIG_FLAGS_append_mingw32 = " -D_POSIX_C_SOURCE"
+QT_CONFIG_FLAGS:append:mingw32 = " -D_POSIX_C_SOURCE"

@@ -42,7 +42,7 @@ QT_MODULE_BRANCH = "5.15"
 
 SRCREV = "9d6a97f0fb5ff22a12f5c1dc0761fcbfb3490c0a"
 
-S = "${WORKDIR}/git/wayland/democompositor/"
+S = "${WORKDIR}/git/wayland/democompositor"
 
 DEPENDS = "qtbase qtwayland"
 

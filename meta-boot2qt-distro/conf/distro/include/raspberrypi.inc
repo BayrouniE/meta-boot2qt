@@ -35,7 +35,7 @@ QBSP_IMAGE_CONTENT += "\
     ${IMAGE_LINK_NAME}.info \
     "
 
-MACHINE_EXTRA_INSTALL_append_arm = "\
+MACHINE_EXTRA_INSTALL:append:arm = "\
         omxplayer \
         "
 

@@ -27,4 +27,4 @@
 ##
 ############################################################################
 
-DEPENDS_remove = "virtual/libgl libglu"
+DEPENDS:remove = "virtual/libgl libglu"

@@ -29,6 +29,6 @@
 
 PACKAGECONFIG_GL = "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gles2', '', d)}"
 
-do_install_append() {
+do_install:append() {
     sed -i -e "s|${STAGING_INCDIR}|$\{includedir}|g" ${D}${libdir}/pkgconfig/sdl2.pc
 }

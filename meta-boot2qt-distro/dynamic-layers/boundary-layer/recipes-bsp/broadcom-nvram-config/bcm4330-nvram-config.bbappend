@@ -27,6 +27,6 @@
 ##
 ############################################################################
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${MACHINE}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${MACHINE}:"
 
 COMPATIBLE_MACHINE = "(cubox-i|nitrogen6x|nitrogen6x-lite|wandboard|imx6sl-warp)"

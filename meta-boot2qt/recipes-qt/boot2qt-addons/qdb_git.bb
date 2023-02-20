@@ -54,7 +54,7 @@ RRECOMMENDS_${PN} += "kernel-module-usb-f-fs kernel-module-usb-f-rndis"
 
 EXTRA_QMAKEVARS_PRE = "CONFIG+=daemon_only"
 
-do_install_append() {
+do_install:append() {
     install -m 0755 ${WORKDIR}/b2qt-gadget-network.sh ${D}${bindir}/
 
     install -m 0755 ${WORKDIR}/qdbd-init.sh ${D}${bindir}/

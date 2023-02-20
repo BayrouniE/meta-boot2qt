@@ -289,6 +289,6 @@ QT_SDK_PATH = ""
 
 # If you have access to QtSafeRenderer sources, either from git or QtSDK,
 # you can enable it by uncommenting following line
-#DISTRO_FEATURES_BACKFILL_append = " qtsaferenderer"
+#DISTRO_FEATURES_BACKFILL:append = " qtsaferenderer"
 
 include conf/distro/include/${MACHINE}.pre.inc

@@ -35,7 +35,7 @@ inherit packagegroup
 
 PACKAGEGROUP_DISABLE_COMPLEMENTARY = "1"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     qtivi-dev \
     libarchive-dev \
     qtapplicationmanager-dev \
@@ -43,5 +43,5 @@ RDEPENDS_${PN} += " \
     avs-device-sdk \
     "
 
-RDEPENDS_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'qtsaferenderer', \
+RDEPENDS:${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'qtsaferenderer', \
                                         'qtsaferenderer-dev qtsaferenderer-staticdev', '', d)}"

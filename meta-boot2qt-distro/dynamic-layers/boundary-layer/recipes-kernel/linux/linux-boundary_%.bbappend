@@ -28,8 +28,8 @@
 ############################################################################
 
 # kernel image files are not needed in the image
-RDEPENDS_${KERNEL_PACKAGE_NAME}-base = ""
+RDEPENDS:${KERNEL_PACKAGE_NAME}-base = ""
 
-do_preconfigure_prepend() {
+do_preconfigure:prepend() {
     echo "CONFIG_UPROBE_EVENT=y"                >> ${WORKDIR}/defconfig
 }

@@ -4,6 +4,6 @@
 # and produce a lot of errors. Instead put it inside a qt5 folder where only qtivi picks it up
 # This is a workaround and needs to be replaced by a proper solution discussed here:
 # https://bugreports.qt.io/browse/AUTOSUITE-176
-sysroot_stage_all_append_class-nativesdk () {
+sysroot_stage_all:append:class-nativesdk () {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}/qt5
 }

@@ -27,7 +27,7 @@
 ##
 ############################################################################
 
-FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:append := "${THISDIR}/${PN}:"
 SRC_URI += " \
         file://0002-set-CMA-reserved-size-to-384MB.patch \
         "

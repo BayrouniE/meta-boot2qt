@@ -27,5 +27,5 @@
 ##
 ############################################################################
 
-PACKAGECONFIG_remove_class-nativesdk_mingw32 = "ssl"
-RRECOMMENDS_lib${BPN}_remove_mingw32 = "ca-certificates"
+PACKAGECONFIG:remove_class-nativesdk:mingw32 = "ssl"
+RRECOMMENDS_lib${BPN}:remove:mingw32 = "ca-certificates"

@@ -39,7 +39,7 @@ SRCREV = "d4277ed9597a2277f6a32f3f8480d746cd020a82"
 DEPENDS = "qtbase qtdeclarative libyaml libarchive \
            ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland qtwayland-native", "", d)}"
 
-RDEPENDS_${PN}_class-target = "libcrypto ${PN}-tools"
+RDEPENDS:${PN}_class-target = "libcrypto ${PN}-tools"
 
 EXTRA_QMAKEVARS_PRE += "\
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "-config force-multi-process", "-config force-single-process", d)} \
@@ -48,7 +48,7 @@ EXTRA_QMAKEVARS_PRE += "\
     -config hardware-id=neptune \
     "
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}/opt/am/
     install -m 0644 ${S}/template-opt/am/config.yaml ${D}/opt/am/
 }
@@ -61,8 +61,8 @@ BBCLASSEXTEND += "nativesdk native"
 
 # nativesdk-qtdeclarative is added only to make build deterministic, can be removed once
 # there is a configure option to disable its usage.
-DEPENDS_class-nativesdk = "qtbase nativesdk-qtdeclarative nativesdk-glibc-locale nativesdk-libarchive"
-DEPENDS_class-nativesdk_remove_mingw32 = "nativesdk-glibc-locale nativesdk-libarchive"
+DEPENDS:class-nativesdk = "qtbase nativesdk-qtdeclarative nativesdk-glibc-locale nativesdk-libarchive"
+DEPENDS:class-nativesdk:remove:mingw32 = "nativesdk-glibc-locale nativesdk-libarchive"
 
 EXTRA_QMAKEVARS_PRE_class-nativesdk = "\
     -config tools-only \

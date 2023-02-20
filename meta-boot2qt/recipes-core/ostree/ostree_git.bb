@@ -66,7 +66,7 @@ DEPENDS = "glib-2.0 glib-2.0-native e2fsprogs gpgme attr libsoup-2.4 libassuan x
 
 # Bash is needed by the shipped dracut module. This dracut module is used to generate initramfs image.
 # The production image do not require bash for proper working.
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 RRECOMMENDS_${PN} += "gnupg"
 
 PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)}"
@@ -89,7 +89,7 @@ EXTRA_OECONF = "--with-dracut \
                 --enable-introspection=no \
                 --enable-libsoup-client-certs"
 
-do_configure_prepend() {
+do_configure:prepend() {
     cd ${S}
     # Update submodules and workaround bugs.
     env NOCONFIGURE=1 ./autogen.sh

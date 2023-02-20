@@ -36,5 +36,5 @@ def qt_features(d):
         features = f.read().replace('\n', ' ')
     return features
 
-QT_CONFIG_FLAGS_append_class-target = " ${@qt_features(d)}"
-EXTRA_QMAKEVARS_CONFIGURE_append_class-target = " ${@qt_features(d)}"
+QT_CONFIG_FLAGS:append_class-target = " ${@qt_features(d)}"
+EXTRA_QMAKEVARS_CONFIGURE:append_class-target = " ${@qt_features(d)}"

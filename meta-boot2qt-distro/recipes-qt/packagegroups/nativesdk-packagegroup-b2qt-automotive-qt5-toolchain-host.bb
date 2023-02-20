@@ -31,12 +31,12 @@ DESCRIPTION = "Host packages for B2Qt automotive Qt5 SDK"
 LICENSE = "The-Qt-Company-Commercial"
 PR = "r0"
 
-inherit nativesdk packagegroup
+inherit packagegroup nativesdk
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     nativesdk-packagegroup-b2qt-embedded-qt5-toolchain-host \
     nativesdk-qtapplicationmanager-tools \
     nativesdk-qtivi-tools \
     "
 
-RDEPENDS_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'qtsaferenderer', 'nativesdk-qtsaferenderer-tools', '', d)}"
+RDEPENDS:${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'qtsaferenderer', 'nativesdk-qtsaferenderer-tools', '', d)}"

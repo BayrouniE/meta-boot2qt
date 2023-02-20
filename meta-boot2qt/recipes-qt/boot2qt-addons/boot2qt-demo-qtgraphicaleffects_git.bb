@@ -33,6 +33,6 @@ LIC_FILES_CHKSUM = "file://${BOOT2QTBASE}/licenses/The-Qt-Company-Commercial;md5
 
 require boot2qt-demo.inc
 
-S = "${WORKDIR}/git/basicsuite/graphicaleffects/"
+S = "${WORKDIR}/git/basicsuite/graphicaleffects"
 
 DEPENDS += "qtbase qtdeclarative qtquickcontrols2"

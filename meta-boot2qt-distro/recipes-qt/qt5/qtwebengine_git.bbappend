@@ -27,4 +27,4 @@
 ##
 ############################################################################
 
-PACKAGECONFIG_append = " webrtc"
+PACKAGECONFIG:append = " webrtc"

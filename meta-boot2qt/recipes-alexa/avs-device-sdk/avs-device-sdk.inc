@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d92e60ee98664c54f68aa515a6169708"
 
 DEPENDS = "curl nghttp2 sqlite3 openssl gstreamer1.0 gstreamer1.0-plugins-base"
 
-RDEPENDS_${PN} += "${PN}-sampleapp"
+RDEPENDS:${PN} += "${PN}-sampleapp"
 
 SRC_URI = "https://github.com/alexa/avs-device-sdk/archive/v${PV}.tar.gz"
 
@@ -68,7 +68,7 @@ PACKAGECONFIG[sensory] = "${SENSORY_CMAKE_OPTIONS},,truly-handsfree"
 # Opus encoding (v1.11 or later)
 PACKAGECONFIG[opus] = "-DOPUS=ON,,libopus"
 
-do_install_append() {
+do_install:append() {
     cp -R ${S}/ThirdParty/rapidjson/rapidjson-1.1.0/include/* ${D}${includedir}/include
     install -d ${D}${libdir}
 

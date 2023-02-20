@@ -27,10 +27,10 @@
 ##
 ############################################################################
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/qtbase:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/qtbase:"
 
 PACKAGECONFIG += "openssl gui imageformats"
-PACKAGECONFIG_remove_mingw32 += "openssl"
+PACKAGECONFIG:remove:mingw32 = "openssl"
 
 SRC_URI += "\
     file://0001-Add-win32-g-oe-mkspec-that-uses-the-OE_-environment.patch \

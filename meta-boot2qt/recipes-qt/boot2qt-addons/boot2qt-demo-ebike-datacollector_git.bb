@@ -41,7 +41,7 @@ SRC_URI += " \
     file://ebikedata.service \
     "
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/ebikedata.service ${D}${systemd_unitdir}/system
 }

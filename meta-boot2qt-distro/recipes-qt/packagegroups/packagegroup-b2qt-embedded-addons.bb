@@ -45,7 +45,7 @@ BOOT2QT_DEMOS ?= "\
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "democompositor", "", d)} \
     "
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     boot2qt-appcontroller \
     boot2qt-launcher \
     ${BOOT2QT_DEMOS} \

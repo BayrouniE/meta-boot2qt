@@ -50,7 +50,7 @@ SRC_URI[video3.sha256sum] = "b20ba98464e85cb979f1c505387b0407c4fbec2eaa2170d1360
 
 DEPENDS += "qtbase qtdeclarative qtquickcontrols2"
 
-do_install_append() {
+do_install:append() {
     install -d -m 0755 ${D}/data/videos
     install -m 0644 ${WORKDIR}/*.mp4 ${D}/data/videos
 }

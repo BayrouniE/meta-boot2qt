@@ -45,7 +45,7 @@ S = "${WORKDIR}/git"
 
 DEPENDS = "qtbase"
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}${includedir}/EGL
     install -m 0755 ${S}/headers/EGL/* ${D}${includedir}/EGL
 

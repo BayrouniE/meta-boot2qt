@@ -31,7 +31,7 @@ DESCRIPTION = "Host packages for B2Qt on embedded Linux SDK"
 PR = "r0"
 LICENSE = "The-Qt-Company-Commercial"
 
-inherit nativesdk packagegroup
+inherit packagegroup nativesdk
 
 MACHINE_EXTRA_INSTALL_SDK_HOST ?= ""
 
@@ -41,21 +41,21 @@ python __anonymous() {
         d.appendVar("OVERRIDES", ":linux")
 }
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     nativesdk-gperf \
     nativesdk-cmake \
     nativesdk-make \
     ${MACHINE_EXTRA_INSTALL_SDK_HOST} \
     "
 
-RDEPENDS_${PN}_append_linux = "\
+RDEPENDS:${PN}:append:linux = "\
     nativesdk-python3-modules \
     nativesdk-python3-misc \
     nativesdk-perl-modules \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "nativesdk-wayland-dev", "", d)} \
     "
 
-RDEPENDS_${PN}_append_mingw32 = "\
+RDEPENDS:${PN}:append:mingw32 = "\
     nativesdk-make \
     nativesdk-libgcc \
     nativesdk-libstdc++ \

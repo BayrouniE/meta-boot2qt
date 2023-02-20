@@ -47,7 +47,7 @@ do_compile() {
         -I${WORKDIR}/headers -o libQtGlesStreamClient.so.${PV} ${WORKDIR}/egl.cpp ${WORKDIR}/gles2.cpp
 }
 
-do_install_append() {
+do_install:append() {
     install -m 0755 -d ${D}${libdir}
     install -m 0755 ${S}/libQtGlesStreamClient.so.${PV} ${D}${libdir}
     ln -s libQtGlesStreamClient.so.${PV} ${D}${libdir}/libQtGlesStreamClient.so.${SOLIBMAJOR}.${SOLIBMINOR}
